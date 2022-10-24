@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import Main from "./components/Main/Main";
+import Header from "./components/Header/Header";
+import { useState } from "react";
 
-function App() {
+export default function App() {
+  const [value, setValue] = useState("");
+  const [selectedGenres, setSelectedGenres] = useState([]);
+  const [pageParam, setPageParam] = useState(10);
+
+  // update selected genres state with new value
+  const updateSelectedGenres = (activeGenres) => {
+    setSelectedGenres(activeGenres);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header
+        onSearch={(searchValue) => {
+          setValue(searchValue);
+        }}
+        onSelectedGenresChange={updateSelectedGenres}
+        pageFormat={(pageValue) => {
+          setPageParam(pageValue);
+        }}
+      />
+      <Main
+        search={value}
+        selectedGenres={selectedGenres}
+        pageFMT={pageParam}
+      />
     </div>
   );
 }
-
-export default App;

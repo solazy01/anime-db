@@ -1,0 +1,20 @@
+.grid {
+    justify-content: center;
+}
+
+main {
+    padding-top: 100px;
+    padding-bottom: 25px;
+}
+
+
+.block {
+    width: 300px;
+    height: 50px;
+}
+
+.item {
+    width: 10px;
+    height: 50px;
+}
+

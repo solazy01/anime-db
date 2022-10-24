@@ -1,0 +1,47 @@
+
+.cardTitle {
+    padding: 5px;
+    color: aliceblue;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    background-color: rgba(1,1,1,0.7);
+    border-radius: 10pt;
+}
+.cardContent {
+    font-weight: bold;
+    font-size: 10pt;
+    padding-top: 20px;
+    color: azure;
+    overflow-block: hidden;
+    text-overflow: ellipsis;
+    opacity: 0;
+    transition-duration: 500ms;
+}
+
+.cardBackground:hover {
+    background: rgba(0, 0, 0, 0.7);
+    transition-duration: 300ms;
+}
+
+.cardBackground:hover .cardContent {
+    transition-duration: 500ms;
+    opacity: 1;
+}
+
+.cardBackground:hover .cardDescr {
+    transform: translateY(0);
+}
+
+
+
+.cardBackground{
+    height: 346px;
+    transition-duration: 300ms;
+}
+.cardGrid {
+    margin: 0 auto;
+    height: 346px;
+    width: 225px;
+}
