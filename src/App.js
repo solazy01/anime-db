@@ -1,33 +1,18 @@
 import Main from "./components/Main/Main";
 import Header from "./components/Header/Header";
-import { useState } from "react";
+import Details from "./components/Details/Details";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 export default function App() {
-  const [value, setValue] = useState("");
-  const [selectedGenres, setSelectedGenres] = useState([]);
-  const [pageParam, setPageParam] = useState(10);
-
-  // update selected genres state with new value
-  const updateSelectedGenres = (activeGenres) => {
-    setSelectedGenres(activeGenres);
-  };
-
   return (
     <div>
-      <Header
-        onSearch={(searchValue) => {
-          setValue(searchValue);
-        }}
-        onSelectedGenresChange={updateSelectedGenres}
-        pageFormat={(pageValue) => {
-          setPageParam(pageValue);
-        }}
-      />
-      <Main
-        search={value}
-        selectedGenres={selectedGenres}
-        pageFMT={pageParam}
-      />
+      <Router>
+        <Header />
+        <Routes>
+          <Route path="/" exact element={<Main />}></Route>
+          <Route path="/:id/details" element={<Details />}></Route>
+        </Routes>
+      </Router>
     </div>
   );
 }

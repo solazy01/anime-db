@@ -12,9 +12,10 @@ export default function SelectPageFormat({ pageFormat }) {
   return (
     <FormControl fullWidth sx={{ paddingBottom: "10px" }}>
       <Select
-        color="error"
+        color="primary"
         id="demo-simple-select"
         value={value}
+        size="small"
         onChange={selectChange}
       >
         <MenuItem value={10}>10</MenuItem>

@@ -5,7 +5,7 @@ import Typography from "@mui/material/Typography";
 import "./MediaCard.css";
 import { CardActionArea, Chip } from "@mui/material";
 
-export default function MediaCard({ item }) {
+export default function MediaCard({ item, onCardClick }) {
   return (
     <Card
       className="cardGrid"
@@ -14,7 +14,7 @@ export default function MediaCard({ item }) {
         backgroundSize: "cover",
       }}
     >
-      <CardActionArea>
+      <CardActionArea onClick={onCardClick}>
         <CardContent className="cardBackground" sx={{}}>
           <Typography
             className="cardTitle"
@@ -36,7 +36,7 @@ export default function MediaCard({ item }) {
             />
           ))}
           <Typography className="cardContent" variant="body1">
-            {item.synopsis}
+            {item.synopsis?.substring(0, 180) || ""}
           </Typography>
         </CardContent>
       </CardActionArea>
